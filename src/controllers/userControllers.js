@@ -5,11 +5,11 @@ const SECRET = process.env.SECRET
 
 const getAll = async (req, res) => {
   const authHeader = req.header('authorization')
-  const token = authHeader.split(' ')[1]
-
-  if(!token) {
+  if(!authHeader) {
     return res.status(401).send('Erro no header da requisição.')
   }
+
+  const token = authHeader.split(' ')[1]
 
   jwt.verify(token, SECRET, (error) => {
     if(error) {
