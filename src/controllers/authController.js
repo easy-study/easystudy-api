@@ -23,7 +23,8 @@ const login = (req, res) => {
 
       res.status(200).send({
         message: `Que bom que você veio, ${user.name}!`,
-        token
+        token,
+        isAdmin: user.isAdmin
       })
     })
   } catch(e) {

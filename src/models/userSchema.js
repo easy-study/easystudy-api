@@ -1,3 +1,4 @@
+const { boolean } = require('joi')
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
@@ -17,6 +18,11 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: new Date()
+  },
+  isAdmin: {
+    type: Boolean,
+    require: true,
+    default: false
   }
 })
 
